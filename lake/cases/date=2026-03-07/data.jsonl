@@ -1,0 +1,3 @@
+{"case_id": 93, "customer_id": 18, "title": "Reconciliation exception report", "description": "Reconciliation exception report generated 50 unmatched items. Billing review needed.", "status": "in_progress", "updated_at": "2026-03-07T11:22:39.179134+00:00"}
+{"case_id": 85, "customer_id": 15, "title": "Payment reconciliation dispute", "description": "Payment reconciliation dispute between customer and billing team.", "status": "open", "updated_at": "2026-03-07T11:22:39.179134+00:00"}
+{"case_id": 122, "customer_id": 28, "title": "Onboarding PEP check", "description": "Politically Exposed Person (PEP) check during onboarding. AML protocol activated.", "status": "open", "updated_at": "2026-03-07T11:22:39.179134+00:00"}

@@ -1,0 +1,2 @@
+{"case_id": 102, "customer_id": 21, "title": "Fraud AML crossover case", "description": "Case involves both fraud indicators and AML red flags. Joint investigation opened.", "status": "in_progress", "updated_at": "2026-03-10T11:22:39.179134+00:00"}
+{"case_id": 94, "customer_id": 18, "title": "Payment fraud dispute", "description": "Customer disputing payment as fraud. Investigation and reconciliation in progress.", "status": "closed", "updated_at": "2026-03-10T11:22:39.179134+00:00"}

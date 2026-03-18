@@ -1,0 +1,2 @@
+{"case_id": 108, "customer_id": 23, "title": "Compliance training completion", "description": "Compliance training completed by customer team. Onboarding resumed.", "status": "closed", "updated_at": "2026-03-12T11:22:39.179134+00:00"}
+{"case_id": 100, "customer_id": 20, "title": "Reconciliation batch failure", "description": "Overnight reconciliation batch failed. Payments team investigating root cause.", "status": "open", "updated_at": "2026-03-12T11:22:39.179134+00:00"}

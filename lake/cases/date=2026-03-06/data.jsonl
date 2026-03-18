@@ -1,0 +1,4 @@
+{"case_id": 116, "customer_id": 26, "title": "Compliance status update", "description": "Regulatory compliance status update required by board. Billing and audit data needed.", "status": "open", "updated_at": "2026-03-06T11:22:39.179134+00:00"}
+{"case_id": 82, "customer_id": 14, "title": "Fraud chargeback escalation", "description": "High-value chargeback escalated to fraud team. Payment processor notified.", "status": "closed", "updated_at": "2026-03-06T11:22:39.179134+00:00"}
+{"case_id": 119, "customer_id": 27, "title": "AML de-risking review", "description": "AML de-risking review initiated. Customer relationship under assessment.", "status": "open", "updated_at": "2026-03-06T11:22:39.179134+00:00"}
+{"case_id": 90, "customer_id": 17, "title": "AML beneficial ownership", "description": "AML investigation into beneficial ownership structure. Compliance filing required.", "status": "in_progress", "updated_at": "2026-03-06T11:22:39.179134+00:00"}

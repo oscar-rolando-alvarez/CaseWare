@@ -1,0 +1,3 @@
+{"case_id": 128, "customer_id": 30, "title": "Onboarding final review", "description": "Final onboarding review for corporate customer. Compliance and fraud checks complete.", "status": "closed", "updated_at": "2026-03-09T11:22:39.179134+00:00"}
+{"case_id": 99, "customer_id": 20, "title": "Onboarding AML complete", "description": "Onboarding AML checks completed. Customer cleared for account activation.", "status": "closed", "updated_at": "2026-03-09T11:22:39.179134+00:00"}
+{"case_id": 91, "customer_id": 17, "title": "Fraud network mapping", "description": "Fraud network mapping exercise. Compliance and AML teams coordinating.", "status": "open", "updated_at": "2026-03-09T11:22:39.179134+00:00"}

@@ -1,0 +1,3 @@
+{"case_id": 96, "customer_id": 19, "title": "AML case escalation", "description": "AML case escalated to financial intelligence unit. Case documentation prepared.", "status": "in_progress", "updated_at": "2026-03-08T11:22:39.179134+00:00"}
+{"case_id": 125, "customer_id": 29, "title": "Fraud claim investigation", "description": "Customer fraud claim investigation. Payments and billing records subpoenaed.", "status": "in_progress", "updated_at": "2026-03-08T11:22:39.179134+00:00"}
+{"case_id": 88, "customer_id": 16, "title": "Fraud detection model update", "description": "Fraud detection model retrained on new patterns. Compliance sign-off required.", "status": "open", "updated_at": "2026-03-08T11:22:39.179134+00:00"}

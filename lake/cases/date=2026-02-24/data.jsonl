@@ -1,0 +1,4 @@
+{"case_id": 30, "customer_id": 5, "title": "Payment reconciliation audit", "description": "External auditor requested payment reconciliation records for last 12 months.", "status": "in_progress", "updated_at": "2026-02-24T11:22:39.177052+00:00"}
+{"case_id": 37, "customer_id": 6, "title": "Payment method onboarding", "description": "Customer onboarding new payment method. Compliance validation in progress.", "status": "in_progress", "updated_at": "2026-02-24T11:22:39.177353+00:00"}
+{"case_id": 43, "customer_id": 7, "title": "AML enhanced due diligence", "description": "Customer triggered AML enhanced due diligence criteria. Compliance review underway.", "status": "open", "updated_at": "2026-02-24T11:22:39.177657+00:00"}
+{"case_id": 50, "customer_id": 8, "title": "Chargeback fraud investigation", "description": "Multiple chargebacks indicate possible friendly fraud. Billing and fraud teams engaged.", "status": "open", "updated_at": "2026-02-24T11:22:39.178003+00:00"}

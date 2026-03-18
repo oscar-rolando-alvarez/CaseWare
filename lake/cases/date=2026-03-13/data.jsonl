@@ -1,0 +1,2 @@
+{"case_id": 111, "customer_id": 24, "title": "Billing overpayment refund", "description": "Customer overpaid invoice. Reconciliation and refund via payments processor.", "status": "closed", "updated_at": "2026-03-13T11:22:39.179134+00:00"}
+{"case_id": 103, "customer_id": 21, "title": "Payments reconciliation audit", "description": "Payments reconciliation audit requested by external compliance body.", "status": "open", "updated_at": "2026-03-13T11:22:39.179134+00:00"}

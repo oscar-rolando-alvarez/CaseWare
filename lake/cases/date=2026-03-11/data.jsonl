@@ -1,0 +1,2 @@
+{"case_id": 97, "customer_id": 19, "title": "Billing policy review", "description": "Billing policy review triggered by compliance audit findings.", "status": "open", "updated_at": "2026-03-11T11:22:39.179134+00:00"}
+{"case_id": 105, "customer_id": 22, "title": "AML monitoring upgrade", "description": "AML monitoring system upgrade. Historical transactions re-screened for compliance.", "status": "in_progress", "updated_at": "2026-03-11T11:22:39.179134+00:00"}
