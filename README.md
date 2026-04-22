@@ -133,6 +133,90 @@ Sample response:
 
 ---
 
+## Architecture
+
+The service is organized following a Clean Architecture layout: `domain` is a pure data + ports layer, `application` holds use cases (`IngestService`, `SearchIndex`), `infrastructure` implements adapters (Postgres reader, JSONL lake writer, event emitter, checkpoint store) and `presentation` exposes the FastAPI routes.
+
+### Layer and module map
+
+```mermaid
+flowchart TD
+    subgraph Presentation [src/presentation]
+        API[api.py<br/>FastAPI routes<br/>POST /ingest, POST /search]
+    end
+    subgraph Application [src/application]
+        Ingest[ingest_service.py<br/>IngestService]
+        Search[search_index.py<br/>hash TF-IDF]
+    end
+    subgraph Domain [src/domain]
+        Models[models.py<br/>Customer, Case, IngestManifest,<br/>IngestEvent, SearchRequest/Result]
+        Ports[ports.py<br/>abstract interfaces]
+    end
+    subgraph Infrastructure [src/infrastructure]
+        DB[database.py<br/>psycopg2 reader]
+        LW[lake_writer.py<br/>JSONL partitions]
+        EE[event_emitter.py<br/>events.jsonl]
+        CP[checkpoint.py<br/>state/checkpoint.json]
+    end
+    API --> Ingest
+    API --> Search
+    Ingest --> Ports
+    Search --> Ports
+    Ingest --> Models
+    Search --> Models
+    DB -.implements.-> Ports
+    LW -.implements.-> Ports
+    EE -.implements.-> Ports
+    CP -.implements.-> Ports
+    DB --> PG[(PostgreSQL<br/>customers, cases)]
+    LW --> Lake[(lake/&lt;table&gt;/date=YYYY-MM-DD/data.jsonl)]
+    EE --> Evts[(events/events.jsonl)]
+    CP --> State[(state/checkpoint.json)]
+```
+
+### Incremental ingest lifecycle
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant API as FastAPI /ingest
+    participant Svc as IngestService
+    participant CP as CheckpointStore
+    participant DB as PostgresReader
+    participant LW as LakeWriter
+    participant EE as EventEmitter
+    participant SI as SearchIndex
+
+    Client->>API: POST /ingest?dry_run=false
+    API->>Svc: run(dry_run=False)
+    Svc->>CP: load() -> checkpoint_before
+    Svc->>DB: read customers WHERE updated_at > checkpoint
+    DB-->>Svc: delta rows
+    Svc->>DB: read cases WHERE updated_at > checkpoint
+    DB-->>Svc: delta rows
+    alt not dry run
+        Svc->>LW: write partitions per date (os.replace atomic)
+        Svc->>EE: append IngestEvent per table
+        Svc->>CP: save(new checkpoint = max updated_at)
+        Svc->>SI: rebuild from lake
+    end
+    Svc-->>API: IngestManifest (run_id, delta counts, fingerprints)
+    API-->>Client: 200 OK + manifest
+```
+
+### Search path (hash-trick TF-IDF)
+
+```mermaid
+flowchart LR
+    Lake[(lake/cases/**/*.jsonl)] --> Build[SearchIndex.build]
+    Build --> Tokens[tokenize + SHA-256 hash buckets]
+    Tokens --> IDF[IDF weights]
+    Query[POST /search query] --> Qtok[tokenize query]
+    Qtok --> Score[cosine against cases]
+    IDF --> Score
+    Score --> Top[top_k SearchResult<br/>case_id, score, title, status]
+```
+
 ## Key Assumptions
 
 1. **Checkpoint semantics**: The checkpoint stores `max(updated_at)` across both tables seen in the last successful run. A row is "new" if `updated_at > checkpoint`. This means rows updated at the exact checkpoint timestamp are not re-ingested (strict `>`).
